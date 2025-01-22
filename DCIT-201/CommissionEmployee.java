@@ -1,12 +1,13 @@
 public class CommissionEmployee {
-    
+
     private String firstName;
     private String lastName;
     private String socialSecurityNumber;
     private double grossSales;
     private double commissionRate;
 
-    public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate ) {
+    public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales,
+            double commissionRate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.socialSecurityNumber = socialSecurityNumber;
@@ -68,7 +69,7 @@ public class CommissionEmployee {
 
     public String toString() {
         return String.format("CommissionEmployee: %s %s%nSSN: %s%nGross Sales: %.2f%nCommission Rate: %.2f",
-            firstName, lastName, socialSecurityNumber, grossSales, commissionRate);
+                firstName, lastName, socialSecurityNumber, grossSales, commissionRate);
     }
 
     public static void main(String[] args) {
@@ -76,10 +77,76 @@ public class CommissionEmployee {
         try {
             System.out.println(employee1);
             System.out.println("Earnings: " + employee1.earnings());
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
     }
-    
+
+}
+
+class BasePlusCommissionEmployee extends CommissionEmployee {
+    public BasePlusCommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales,
+            double commissionRate, double baseSalary) {
+        super(firstName, lastName, socialSecurityNumber, grossSales, commissionRate);
+        if (baseSalary >= 0.0) {
+            this.baseSalary = baseSalary;
+        } else {
+            throw new IllegalArgumentException("Base salary must be > 0.0");
+        }
+    }
+
+    @Override
+    public String getFirstName() {
+        return super.getFirstName();
+    }
+
+    @Override
+    public String getLastName() {
+        return super.getLastName();
+    }
+
+    @Override
+    public String getSocialSecurityNumber() {
+        return super.getSocialSecurityNumber();
+    }
+
+    @Override
+    public double getGrossSales() {
+        return super.getGrossSales();
+    }
+
+    @Override
+    public double getCommissionRate() {
+        return super.getCommissionRate();
+    }
+
+    private double baseSalary;
+
+    public double getBaseSalary() {
+        return baseSalary;
+    }
+
+    public void setBaseSalary(double BaseSalary) {
+        if (BaseSalary >= 0) {
+            this.baseSalary = BaseSalary;
+        } else {
+            throw new IllegalArgumentException("baseSalary cannot be negative");
+        }
+    }
+
+    @Override
+    public double earnings() {
+        return baseSalary + super.earnings();
+    }
+
+    public static void main(String[] args) {
+        BasePlusCommissionEmployee employee = new BasePlusCommissionEmployee("Godswill", "Asampong", "540937457304", 530.34, 0.2, 1200);
+        try {
+            System.out.println(employee);
+            System.out.println("Base Salary:" + employee.earnings());
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
 }
