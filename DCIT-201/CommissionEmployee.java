@@ -96,31 +96,6 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
         }
     }
 
-    @Override
-    public String getFirstName() {
-        return super.getFirstName();
-    }
-
-    @Override
-    public String getLastName() {
-        return super.getLastName();
-    }
-
-    @Override
-    public String getSocialSecurityNumber() {
-        return super.getSocialSecurityNumber();
-    }
-
-    @Override
-    public double getGrossSales() {
-        return super.getGrossSales();
-    }
-
-    @Override
-    public double getCommissionRate() {
-        return super.getCommissionRate();
-    }
-
     private double baseSalary;
 
     public double getBaseSalary() {
