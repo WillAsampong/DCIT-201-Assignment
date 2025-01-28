@@ -1,4 +1,4 @@
-// Encapsulation
+// ENCAPSULATION
 
 public class CommissionEmployee {
 
@@ -127,7 +127,3 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
         }
     }
 }
-
-// POLYMORPHISM
-
-

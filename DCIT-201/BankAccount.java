@@ -69,7 +69,7 @@ public class BankAccount {
     public static void main(String[] args) {
         BankAccount accountHolder1 = new savingsAccount("Asampong Godswill", "497634583453", 500.00, 3);
 
-        BankAccount accountHolder2 = new currentAccount("Ukpel Derrick", "327469823647327", 1000.00, 500.00);
+        BankAccount accountHolder2 = new currentAccount("Asiedu Derrick", "327469823647327", 1000.00, 500.00);
 
         accountHolder1.deposit(300.00);
         accountHolder2.deposit(250.00);
